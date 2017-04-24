@@ -16,7 +16,17 @@ router.get("/", function (req, res, next) {
             var zip = new AdmZip("./out.json.zip");
 
             zip.extractAllTo("./out", true);
-        })
+        });
+    });
+});
+
+router.get("/showUpdates", function (req, res, next) {
+    fs.readFile('./out/nvdcve-1.0-recent.json', 'utf8', function (err,data) {
+        if (err) {
+            res.write(err);
+        }
+
+        res.write(data);
     });
 });
 
