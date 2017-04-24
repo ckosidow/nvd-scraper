@@ -27,11 +27,12 @@ router.get("/showUpdates", function (req, res, next) {
         }
 
         res.write(data);
+        res.end();
     });
 });
 
 router.get("/:name", function (req, res, next) {
-    res.render(req.params.name, {title: "Gro"});
+    res.render(req.params.name, {title: "DepWatch"});
 });
 
 router.get("/partials/:name", function (req, res) {
